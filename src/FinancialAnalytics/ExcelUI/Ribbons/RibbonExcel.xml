@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<customUI onLoad="RibbonLoaded" xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+	<ribbon>
+		<tabs>
+			<tab id="FinancialAnalytics" getLabel="GetLabel">
+        <group id="FA_DataGroup" getLabel="GetLabel" getVisible="GetVisible">
+          <button id="FA_ScreenerButton" size="large" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" getKeytip="GetKeytip"/>
+          <button id="FA_Quotes_Button" size="large" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" getKeytip="GetKeytip"/>
+          <!--<button id="FA_LTButton" size="large" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" getKeytip="GetKeytip"/>-->
+          <button id="FA_HDButton" size="large" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" getKeytip="GetKeytip"/>
+          <button id="FA_ChartsButton" size="large" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" getKeytip="GetKeytip"/>
+          <!--<button id="FA_SearchButton" size="large" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" getKeytip="GetKeytip"/>-->
+        </group>
+      <group id="FA_AppsGroup" getLabel="GetLabel" getVisible="GetVisible">
+          <button id="FA_PortfolioButton" size="large" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" getKeytip="GetKeytip"/>
+          <button id="FA_HomeButton" size="large" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" getKeytip="GetKeytip"/>
+        </group>
+      <group id="FA_DataToolsGroup" getLabel="GetLabel" getVisible="GetVisible">
+         <splitButton id="FA_RefreshHost"  getKeytip="GetKeytip" size="large" getEnabled="GetEnabled" getVisible="GetVisible">
+            <button id="FA_RefreshButton" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getSupertip="GetSupertip" />
+            <menu itemSize="normal" id="FA_RefreshMenu">
+							<button id="FA_Refresh_Allworkbooks" getImage="GetImage" getKeytip="GetKeytip" onAction="OnButtonAction" getVisible="GetVisible" getEnabled="GetEnabled" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" />
+							<button id="FA_Refresh_Activeworkbook" getImage="GetImage" getKeytip="GetKeytip" onAction="OnButtonAction" getVisible="GetVisible" getEnabled="GetEnabled" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" />
+							<button id="FA_Refresh_Activeworksheet" getImage="GetImage" getKeytip="GetKeytip" onAction="OnButtonAction" getVisible="GetVisible" getEnabled="GetEnabled" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" />
+							<button id="FA_Refresh_ActiveCell" getImage="GetImage" getKeytip="GetKeytip" onAction="OnButtonAction" getVisible="GetVisible" getEnabled="GetEnabled" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" />
+            </menu>
+          </splitButton>
+        <!--<menu id="FA_Utilities_Menu" size="normal" getKeytip="GetKeytip" getLabel="GetLabel" getImage="GetImage" visible="true" getSupertip="GetSupertip" >
+          <button id="FA_Utilities_Shortcuts" getKeytip="GetKeytip" onAction="OnButtonAction" getEnabled="GetEnabled" getVisible="GetVisible" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip"/>
+        </menu>-->
+      <button id="FA_XChangeRates_Button" size="normal" getKeytip="GetKeytip" onAction="OnButtonAction" getEnabled="GetEnabled" getVisible="GetVisible" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip"/>
+        <button id="FA_UpdateStatusButton" getKeytip="GetKeytip" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip"/>
+        </group>
+        <group id="FA_SettingsGroup" getLabel="GetLabel" getVisible="GetVisible">
+          <button id="FA_OptionsButton" size="large" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" getKeytip="GetKeytip"/>
+          <!--<box id="FA_StatusButtonsBox" boxStyle="horizontal">
+            <button id="FA_StatusButton" getKeytip="GetKeytip" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip"/>
+            <menu id="FA_StatusMenu" getKeytip="GetKeytip" getVisible="GetVisible" itemSize="normal" getScreentip="GetScreentip" getSupertip="GetSupertip">
+              <button id="FA_LogoutButton" getKeytip="GetKeytip" onAction="OnButtonAction" getEnabled="GetEnabled" getImage="GetImage" getLabel="GetLabel" getScreentip="GetScreentip" getSupertip="GetSupertip" />
+            </menu>
+          </box>-->
+        </group>
+			</tab>
+		</tabs>
+	</ribbon>
+</customUI>

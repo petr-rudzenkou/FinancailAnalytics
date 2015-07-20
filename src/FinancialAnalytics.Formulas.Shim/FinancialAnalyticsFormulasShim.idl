@@ -1,0 +1,39 @@
+// FinancialAnalytics.Formulas.Shim.idl 
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(66554723-75AA-4B0C-A15F-563E803F7564),
+	version(1.0),
+	helpstring("FinancialAnalyticsFormulasShim 1.0 Type Library")
+]
+library FinancialAnalyticsFormulasShimLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(12aeea34-be04-48b2-bbc0-22db512e96aa),
+		helpstring("ConnectProxy Class")
+	]
+	coclass ConnectProxy
+	{
+		[default] interface IUnknown;
+	};
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+// FinancialAnalytics.Shim.idl 
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(FC077555-7404-4E2A-8544-0678CAB1C1AF),
+	version(1.0),
+	helpstring("FinancialAnalyticsShim 1.0 Type Library")
+]
+library FinancialAnalyticsShimLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(d1ae74f1-69eb-4fce-808a-35a8c97690e6),
+		helpstring("ConnectProxy Class")
+	]
+	coclass ConnectProxy
+	{
+		[default] interface IUnknown;
+	};
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

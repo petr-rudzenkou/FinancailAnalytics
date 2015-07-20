@@ -1,0 +1,179 @@
+﻿<UserControl x:Class="FinancialAnalytics.Views.Quotes.QuotesInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:commonConverters="clr-namespace:FinancialAnalytics.Views.Base.Converters"
+             xmlns:converters="clr-namespace:FinancialAnalytics.Views.Portfolio.Converters"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <commonConverters:PriceGainFontColorConverter x:Key="PriceGainFontColorConverter"/>
+        <commonConverters:PriceGainConverter x:Key="PriceGainConverter"/>
+        <commonConverters:PercentageConverter x:Key="PercentageConverter"/>
+        <commonConverters:InPortfolioConverter x:Key="InPortfolioConverter"/>
+        <converters:MediumImageConverter x:Key="MediumImageConverter"/>
+    </UserControl.Resources>
+    <Grid DataContext="{Binding QuotesData}" Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="15*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" HorizontalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"></RowDefinition>
+                        <RowDefinition Height="5*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5,0">
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="15"></TextBlock>
+                        <TextBlock Text="(" FontWeight="Bold"></TextBlock>
+                        <TextBlock Text="{Binding Symbol}" FontWeight="Bold"></TextBlock>
+                        <TextBlock Text=")" FontWeight="Bold"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0">
+                        <TextBlock Text="{Binding Ask}" FontWeight="ExtraBold" FontSize="23"></TextBlock>
+                        <TextBlock Text="{Binding Change_PercentChange, Converter={StaticResource PriceGainConverter}}" Foreground="{Binding Change_PercentChange, Converter={StaticResource PriceGainFontColorConverter}}" FontWeight="Bold" FontSize="19"></TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding LastTradeDate}"></TextBlock>
+                            <TextBlock Text=", "></TextBlock>
+                            <TextBlock Text="{Binding LastTradeTime}"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" HorizontalAlignment="Stretch">
+                    <DockPanel LastChildFill="False" VerticalAlignment="Center">
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                            <Button Width="80" Height="25" Content="Charts">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <cal:ActionMessage MethodName="GetChart" >
+                                            <cal:Parameter Value="{Binding Symbol}" />
+                                        </cal:ActionMessage>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
+                            <Button x:Name="AddToPortfolio" Content="[+] Add to Portfolio" Width="115" Height="25" Margin="20,0" IsEnabled="{Binding Symbol, Converter={StaticResource InPortfolioConverter}}"></Button>
+                        </StackPanel>
+                    </DockPanel>
+                </Grid>
+            </Grid>
+
+            <Separator Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black"></Separator>
+
+            <Grid  Grid.Row="2" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="9*"></ColumnDefinition>
+                    <ColumnDefinition Width="11*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9*"></ColumnDefinition>
+                        <ColumnDefinition Width="11*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="5,0">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Last Trade: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding PreviousClose}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Trade Time: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding LastTradeTime}" FontWeight="Bold"></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding LastTradeDate}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Change: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding Change_PercentChange, Converter={StaticResource PriceGainConverter}}" FontWeight="Bold" Foreground="{Binding Change_PercentChange, Converter={StaticResource PriceGainFontColorConverter}}"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Prev Close: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding PreviousClose}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Open: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding Open}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Bid: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding Bid}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Ask: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding Ask}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="1Y Target Est: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding OneyrTargetPrice}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="5,0">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Day's Range: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding DaysRange}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="52wk Range: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding YearRange}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Volume: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding Volume}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Avg Vol (3m): "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding AverageDailyVolume}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Market Cap: "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding MarketCapitalization}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="P/E (ttm): "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding PERatio}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="EPS (ttm): "></TextBlock>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding EarningsShare}" FontWeight="Bold"></TextBlock>
+                        </DockPanel>
+                        <Separator/>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="Div &amp; Yield: "></TextBlock>
+                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                <TextBlock Text="{Binding DividendShare}" FontWeight="Bold"></TextBlock>
+                                <TextBlock Text="{Binding DividendYield ,Converter={StaticResource PercentageConverter}}" FontWeight="Bold"></TextBlock>
+                            </StackPanel>
+                        </DockPanel>
+                        <Separator/>
+                    </StackPanel>
+                </Grid>
+                <Border Grid.Column="1" BorderThickness="3">
+                    <Image Source="{Binding Symbol, Converter={StaticResource MediumImageConverter}}" Width="512" Height="288" Stretch="Fill"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

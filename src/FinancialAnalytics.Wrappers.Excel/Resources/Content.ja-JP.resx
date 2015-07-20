@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AxisCrosses_Automatic" xml:space="preserve">
+    <value>自動</value>
+  </data>
+  <data name="AxisCrosses_Custom" xml:space="preserve">
+    <value>カスタム</value>
+  </data>
+  <data name="AxisCrosses_Maximum" xml:space="preserve">
+    <value>最大</value>
+  </data>
+  <data name="AxisCrosses_Minimum" xml:space="preserve">
+    <value>最小</value>
+  </data>
+  <data name="BorderWeight_Hairline" xml:space="preserve">
+    <value>極細</value>
+  </data>
+  <data name="BorderWeight_Medium" xml:space="preserve">
+    <value>中</value>
+  </data>
+  <data name="BorderWeight_None" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="BorderWeight_Thick" xml:space="preserve">
+    <value>太</value>
+  </data>
+  <data name="BorderWeight_Thin" xml:space="preserve">
+    <value>細</value>
+  </data>
+  <data name="HorizontalAlignment_Center" xml:space="preserve">
+    <value>中央</value>
+  </data>
+  <data name="HorizontalAlignment_CenterAcrossSelection" xml:space="preserve">
+    <value>選択範囲内で中央</value>
+  </data>
+  <data name="HorizontalAlignment_Distributed" xml:space="preserve">
+    <value>均等割り付け</value>
+  </data>
+  <data name="HorizontalAlignment_Fill" xml:space="preserve">
+    <value>セル幅全体に表示</value>
+  </data>
+  <data name="HorizontalAlignment_General" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="HorizontalAlignment_Justify" xml:space="preserve">
+    <value>両端揃え</value>
+  </data>
+  <data name="HorizontalAlignment_Left" xml:space="preserve">
+    <value>左揃え</value>
+  </data>
+  <data name="HorizontalAlignment_Right" xml:space="preserve">
+    <value>右揃え</value>
+  </data>
+  <data name="LegendPosition_LegendPositionBottom" xml:space="preserve">
+    <value>下</value>
+  </data>
+  <data name="LegendPosition_LegendPositionCorner" xml:space="preserve">
+    <value>中央</value>
+  </data>
+  <data name="LegendPosition_LegendPositionCustom" xml:space="preserve">
+    <value>カスタム</value>
+  </data>
+  <data name="LegendPosition_LegendPositionLeft" xml:space="preserve">
+    <value>左</value>
+  </data>
+  <data name="LegendPosition_LegendPositionRight" xml:space="preserve">
+    <value>右</value>
+  </data>
+  <data name="LegendPosition_LegendPositionTop" xml:space="preserve">
+    <value>上</value>
+  </data>
+  <data name="LineStyle_Continuous" xml:space="preserve">
+    <value>実線</value>
+  </data>
+  <data name="LineStyle_Dash" xml:space="preserve">
+    <value>破線</value>
+  </data>
+  <data name="LineStyle_DashDot" xml:space="preserve">
+    <value>一点鎖線</value>
+  </data>
+  <data name="LineStyle_DashDotDot" xml:space="preserve">
+    <value>二点鎖線</value>
+  </data>
+  <data name="LineStyle_Dot" xml:space="preserve">
+    <value>点線</value>
+  </data>
+  <data name="LineStyle_Double" xml:space="preserve">
+    <value>二重線</value>
+  </data>
+  <data name="LineStyle_LineStyleNone" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="LineStyle_SlantDashDot" xml:space="preserve">
+    <value>斜め斜線</value>
+  </data>
+  <data name="TickLabelPosition_High" xml:space="preserve">
+    <value>上端</value>
+  </data>
+  <data name="TickLabelPosition_Low" xml:space="preserve">
+    <value>下端</value>
+  </data>
+  <data name="TickLabelPosition_NextToAxis" xml:space="preserve">
+    <value>軸の横</value>
+  </data>
+  <data name="TickLabelPosition_None" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="UnderlineStyle_UnderlineStyleDouble" xml:space="preserve">
+    <value>二重下線</value>
+  </data>
+  <data name="UnderlineStyle_UnderlineStyleDoubleAccounting" xml:space="preserve">
+    <value>二重下線 (会計)</value>
+  </data>
+  <data name="UnderlineStyle_UnderlineStyleNone" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="UnderlineStyle_UnderlineStyleSingle" xml:space="preserve">
+    <value>下線</value>
+  </data>
+  <data name="UnderlineStyle_UnderlineStyleSingleAccounting" xml:space="preserve">
+    <value>下線 (会計)</value>
+  </data>
+  <data name="VerticalAlignment_Bottom" xml:space="preserve">
+    <value>下詰め</value>
+  </data>
+  <data name="VerticalAlignment_Center" xml:space="preserve">
+    <value>中央揃え</value>
+  </data>
+  <data name="VerticalAlignment_Distributed" xml:space="preserve">
+    <value>均等割り付け</value>
+  </data>
+  <data name="VerticalAlignment_Justify" xml:space="preserve">
+    <value>両端揃え</value>
+  </data>
+  <data name="VerticalAlignment_Top" xml:space="preserve">
+    <value>上詰め</value>
+  </data>
+	<data name="TickLabelPosition_Undefined" xml:space="preserve">
+    <value>JP__None</value>
+  </data>
+</root>

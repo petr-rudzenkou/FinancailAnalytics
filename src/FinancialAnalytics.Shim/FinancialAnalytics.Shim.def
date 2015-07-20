@@ -1,0 +1,9 @@
+; FinancialAnalytics.Shim.def : Declares the module parameters.
+
+LIBRARY      "FinancialAnalytics.Shim.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

@@ -1,0 +1,46 @@
+HKEY_CURRENT_USER
+{
+NoRemove Software
+	{
+
+		NoRemove classes
+		{
+			FinancialAnalytics.Connect = s 'Connect Class'
+			{
+				CLSID = s '{d1ae74f1-69eb-4fce-808a-35a8c97690e6}'
+			}
+			NoRemove CLSID
+			{
+				ForceRemove '{d1ae74f1-69eb-4fce-808a-35a8c97690e6}' = s 'FinancialAnalytics.Connect'
+				{
+					ProgID = s 'FinancialAnalytics.Connect'
+					InprocServer32 = s '%MODULE%'
+					{
+						val ThreadingModel = s 'Apartment'
+					}
+				}
+			}
+		}
+
+		NoRemove Microsoft
+		{
+			NoRemove Office
+			{
+				NoRemove Excel
+				{
+					NoRemove Addins
+					{
+						ForceRemove FinancialAnalytics.Connect
+						{
+							val 'Description' = s 'Financial Analytics – Microsoft Office'
+							val 'FriendlyName' = s 'Financial Analytics – Microsoft Office'
+							val 'LoadBehavior' = d 3
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+

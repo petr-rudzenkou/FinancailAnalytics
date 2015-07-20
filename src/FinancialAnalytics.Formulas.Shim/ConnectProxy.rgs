@@ -1,0 +1,33 @@
+
+HKCR
+{
+	FinancialAnalytics.FormulaProcessor = s 'FinancialAnalytics FormulaProcessor (Shim)'
+	{
+		CLSID = s '{12aeea34-be04-48b2-bbc0-22db512e96aa}'
+	}
+	FinancialAnalytics.FormulaProcessor = s 'FinancialAnalytics FormulaProcessor (Shim)'
+	{
+		CLSID = s '{12aeea34-be04-48b2-bbc0-22db512e96aa}'
+		CurVer = s 'FinancialAnalytics.FormulaProcessor'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {12aeea34-be04-48b2-bbc0-22db512e96aa} = s 'FinancialAnalytics FormulaProcessor (Shim)'
+		{
+			ProgID = s 'FinancialAnalytics.FormulaProcessor'
+			VersionIndependentProgID = s 'FinancialAnalytics.FormulaProcessor'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{41554CC6-6BD5-4D9E-A6AB-B5F809C692A0}'
+		}
+	}
+}
+
+
+
+
+

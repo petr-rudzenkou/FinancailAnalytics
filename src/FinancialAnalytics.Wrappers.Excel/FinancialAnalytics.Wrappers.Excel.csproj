@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F3D09A1-A4D0-4280-B4CB-261E052D9C52}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinancialAnalytics.Wrappers.Excel</RootNamespace>
+    <AssemblyName>FinancialAnalytics.Wrappers.Excel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\build\Debug\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\build\Release\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release64|AnyCPU'">
+    <OutputPath>..\..\build\Release64\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.cs" />
+    <Compile Include="AutoRecover.cs" />
+    <Compile Include="Axes.cs" />
+    <Compile Include="Axis.cs" />
+    <Compile Include="AxisTitle.cs" />
+    <Compile Include="Border.cs" />
+    <Compile Include="Borders.cs" />
+    <Compile Include="Chart.cs" />
+    <Compile Include="ChartArea.cs" />
+    <Compile Include="ChartColorFormat.cs" />
+    <Compile Include="ChartFillFormat.cs" />
+    <Compile Include="ChartFormat.cs" />
+    <Compile Include="ChartGroup.cs" />
+    <Compile Include="ChartGroups.cs" />
+    <Compile Include="ChartObject.cs" />
+    <Compile Include="ChartObjects.cs" />
+    <Compile Include="Charts.cs" />
+    <Compile Include="ChartTitle.cs" />
+    <Compile Include="ColorFormat.cs" />
+    <Compile Include="ColorStop.cs" />
+    <Compile Include="ColorStops.cs" />
+    <Compile Include="COMObjectWrapper.cs" />
+    <Compile Include="Connections.cs" />
+    <Compile Include="Constants\FileFormats.cs" />
+    <Compile Include="Converters\AxisCrossesToStringConverter.cs" />
+    <Compile Include="Converters\BorderWeightToStringConverter.cs" />
+    <Compile Include="Converters\HorizontalAlignmentToStringConverter.cs" />
+    <Compile Include="Converters\LegendPositionToStringConverter.cs" />
+    <Compile Include="Converters\LineStyleToStringConverter.cs" />
+    <Compile Include="Converters\Localization\LocalizedDescriptionAttribute.cs" />
+    <Compile Include="Converters\TickLabelPositionToStringConverter.cs" />
+    <Compile Include="Converters\UnderlineStyleToStringConverter.cs" />
+    <Compile Include="Converters\VbeWindowStateToWindowStateConverter.cs" />
+    <Compile Include="Converters\VerticalAlignmentToStringConverter.cs" />
+    <Compile Include="Converters\XlAxisCrossesToAxisCrossesConverter.cs" />
+    <Compile Include="Converters\XlAxisGroupToAxisGroupConverter.cs" />
+    <Compile Include="Converters\XlAxisTypeToAxisTypeConverter.cs" />
+    <Compile Include="Converters\XlBordersIndexToBordersIndexConverter.cs" />
+    <Compile Include="Converters\XlBorderWeightToBorderWeightConverter.cs" />
+    <Compile Include="Converters\XlCalculationToCalculationConverter.cs" />
+    <Compile Include="Converters\XlCategoryTypeToCateroryTypeConverter.cs" />
+    <Compile Include="Converters\XlCellTypeToCellTypeConverter.cs" />
+    <Compile Include="Converters\XlChartLocationToChartLocationConverter.cs" />
+    <Compile Include="Converters\XlChartTypeToChartTypeConverter.cs" />
+    <Compile Include="Converters\XlCmdTypeToCmdTypeConverter.cs" />
+    <Compile Include="Converters\XlColorIndexToColorIndexConverter.cs" />
+    <Compile Include="Converters\XlCopyPictureFormatToCopyPictureFormatConverter.cs" />
+    <Compile Include="Converters\XlDataLabelPositionToDataLabelPosition.cs" />
+    <Compile Include="Converters\XlDisplayBlanksAsToDisplayBlanksAsConverter.cs" />
+    <Compile Include="Converters\XlDisplayUnitToDisplayUnitConverter.cs" />
+    <Compile Include="Converters\XlFileFormatToFileFormatConverter.cs" />
+    <Compile Include="Converters\XlHAlignToHorizontalAlignmentConverter.cs" />
+    <Compile Include="Converters\XlLegendPositionToLegendPositionConverter.cs" />
+    <Compile Include="Converters\XlLineStyleToLineStyleConverter.cs" />
+    <Compile Include="Converters\XlMarkerStyleToMarkerStyleConverter.cs" />
+    <Compile Include="Converters\XlMousePoinerToMousePointerConverter.cs" />
+    <Compile Include="Converters\XlObjectSizeToObjectSizeConverter.cs" />
+    <Compile Include="Converters\XlPageOrientationToPageOrientationConverter.cs" />
+    <Compile Include="Converters\XlPasteSpecialOperationToPasteSpecialOperationConverter.cs" />
+    <Compile Include="Converters\XlPasteTypeToPasteTypeConverter.cs" />
+    <Compile Include="Converters\XlPatternToPatternConverter.cs" />
+    <Compile Include="Converters\XlPictureAppearanceToPictureAppearanceConverter.cs" />
+    <Compile Include="Converters\XLPivotCellTypeToPivotCellTypeConverter.cs" />
+    <Compile Include="Converters\XlPivotFieldOrientationToPivotFieldOrientationConverter.cs" />
+    <Compile Include="Converters\XlPivotTableSourceTypeToPivotTableSourceTypeConverter.cs" />
+    <Compile Include="Converters\XlPivotTableVersionListToPivotTableVersionListConverter.cs" />
+    <Compile Include="Converters\XlPlacementToPlacementConverter.cs" />
+    <Compile Include="Converters\XlReferenceStyleToReferenceStyleConverter.cs" />
+    <Compile Include="Converters\XlRowColToPlotWayConverter.cs" />
+    <Compile Include="Converters\XlSaveAsAccessModeToSaveAsAccessModeConverter.cs" />
+    <Compile Include="Converters\XlScaleTypeToScaleTypeConverter.cs" />
+    <Compile Include="Converters\XLSearchDirectionToSearchDirectionConverter.cs" />
+    <Compile Include="Converters\XlSheetVisibilityToSheetVisibilityConverter.cs" />
+    <Compile Include="Converters\XlTickLabelPositionToTickLabelPositionConverter.cs" />
+    <Compile Include="Converters\XlUnderlineStyleToUnderlineStyleConverter.cs" />
+    <Compile Include="Converters\XlVAlignToVerticalAlignmentConverter.cs" />
+    <Compile Include="Converters\XlWindowStateToWindowStateConverter.cs" />
+    <Compile Include="CubeField.cs" />
+    <Compile Include="CubeFields.cs" />
+    <Compile Include="CustomDocumentProperties.cs" />
+    <Compile Include="CustomProperties.cs" />
+    <Compile Include="CustomProperty.cs" />
+    <Compile Include="DataLabel.cs" />
+    <Compile Include="DataLabels.cs" />
+    <Compile Include="DataTable.cs" />
+    <Compile Include="DownBars.cs" />
+    <Compile Include="DrawingObjects.cs" />
+    <Compile Include="DropLines.cs" />
+    <Compile Include="ErrorBars.cs" />
+    <Compile Include="EventsRouting\ApplicationEvents.cs" />
+    <Compile Include="EventsRouting\BaseEvent.cs" />
+    <Compile Include="EventsRouting\Delegates.cs" />
+    <Compile Include="EventsRouting\ExcelBaseEvent.cs" />
+    <Compile Include="EventsRouting\IExcelEvents.cs" />
+    <Compile Include="EventsRouting\NewWorkbookEventRouter.cs" />
+    <Compile Include="EventsRouting\SheetActivateEventRouter.cs" />
+    <Compile Include="EventsRouting\SheetBeforeDoubleClickEventRouter.cs" />
+    <Compile Include="EventsRouting\SheetBeforeRightClickEventRouter.cs" />
+    <Compile Include="EventsRouting\SheetCalculateEventRouter.cs" />
+    <Compile Include="EventsRouting\SheetChangeEventRouter.cs" />
+    <Compile Include="EventsRouting\SheetDeactivateEventRouter.cs" />
+    <Compile Include="EventsRouting\SheetFollowHyperlinkEventRouter.cs" />
+    <Compile Include="EventsRouting\SheetPivotTableUpdateEventRouter.cs" />
+    <Compile Include="EventsRouting\SheetSelectionChangeEventRouter.cs" />
+    <Compile Include="EventsRouting\WindowActivateEventRouter.cs" />
+    <Compile Include="EventsRouting\WindowDeactivateEventRouter.cs" />
+    <Compile Include="EventsRouting\WindowResizeEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookActivateEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookAddinInstallEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookAddinUninstallEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookBeforeCloseEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookBeforePrintEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookBeforeSaveEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookDeactivateEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookNewSheetEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookOpenEventRouter.cs" />
+    <Compile Include="EventsRouting\WorkbookRowsetCompleteEventRouter.cs" />
+    <Compile Include="ExcelApplicationLoader.cs" />
+    <Compile Include="ExcelEntityResolver.cs" />
+    <Compile Include="ExcelEntityWrapper.cs" />
+    <Compile Include="ExcelEventsPumping.cs" />
+    <Compile Include="ExcelProcessManager.cs" />
+    <Compile Include="ExternalApplication.cs" />
+    <Compile Include="FillFormat.cs" />
+    <Compile Include="Floor.cs" />
+    <Compile Include="Font.cs" />
+    <Compile Include="Gridlines.cs" />
+    <Compile Include="GroupObject.cs" />
+    <Compile Include="HiLoLines.cs" />
+    <Compile Include="Interception\EnUsCultureInvoker.cs" />
+    <Compile Include="Interfaces\IApplication.cs" />
+    <Compile Include="Interfaces\IAutoRecover.cs" />
+    <Compile Include="Interfaces\IAxes.cs" />
+    <Compile Include="Interfaces\IAxis.cs" />
+    <Compile Include="Interfaces\IAxisTitle.cs" />
+    <Compile Include="Interfaces\IBars.cs" />
+    <Compile Include="Interfaces\IBorder.cs" />
+    <Compile Include="Interfaces\IBorders.cs" />
+    <Compile Include="Interfaces\IChart.cs" />
+    <Compile Include="Interfaces\IChartArea.cs" />
+    <Compile Include="Interfaces\IChartColorFormat.cs" />
+    <Compile Include="Interfaces\IChartFillFormat.cs" />
+    <Compile Include="Interfaces\IChartFormat.cs" />
+    <Compile Include="Interfaces\IChartGroup.cs" />
+    <Compile Include="Interfaces\IChartGroups.cs" />
+    <Compile Include="Interfaces\IChartObject.cs" />
+    <Compile Include="Interfaces\IChartObjects.cs" />
+    <Compile Include="Interfaces\ICharts.cs" />
+    <Compile Include="Interfaces\IChartTitle.cs" />
+    <Compile Include="Interfaces\IColorFormat.cs" />
+    <Compile Include="Interfaces\IColorStop.cs" />
+    <Compile Include="Interfaces\IColorStops.cs" />
+    <Compile Include="Interfaces\IComObject.cs" />
+    <Compile Include="Interfaces\IConnections.cs" />
+    <Compile Include="Interfaces\ICubeField.cs" />
+    <Compile Include="Interfaces\ICubeFields.cs" />
+    <Compile Include="Interfaces\ICustomDocumentProperties.cs" />
+    <Compile Include="Interfaces\ICustomProperties.cs" />
+    <Compile Include="Interfaces\ICustomProperty.cs" />
+    <Compile Include="Interfaces\IDataLabel.cs" />
+    <Compile Include="Interfaces\IDataLabels.cs" />
+    <Compile Include="Interfaces\IDataTable.cs" />
+    <Compile Include="Interfaces\IDrawingObjects.cs" />
+    <Compile Include="Interfaces\IDropLines.cs" />
+    <Compile Include="Interfaces\IErrorBars.cs" />
+    <Compile Include="Interfaces\IExcelApplicationLoader.cs" />
+    <Compile Include="Interfaces\IFillFormat.cs" />
+    <Compile Include="Interfaces\IFloor.cs" />
+    <Compile Include="Interfaces\IFont.cs" />
+    <Compile Include="Interfaces\IGradient.cs" />
+    <Compile Include="Interfaces\IGridlines.cs" />
+    <Compile Include="Interfaces\IGroupObject.cs" />
+    <Compile Include="Interfaces\IHiLoLines.cs" />
+    <Compile Include="Interfaces\IInterior.cs" />
+    <Compile Include="Interfaces\ILegend.cs" />
+    <Compile Include="Interfaces\ILegendEntries.cs" />
+    <Compile Include="Interfaces\ILegendEntry.cs" />
+    <Compile Include="Interfaces\ILegendKey.cs" />
+    <Compile Include="Interfaces\ILine.cs" />
+    <Compile Include="Interfaces\ILinearGradient.cs" />
+    <Compile Include="Interfaces\ILineFormat.cs" />
+    <Compile Include="Interfaces\IListObject.cs" />
+    <Compile Include="Interfaces\IListObjects.cs" />
+    <Compile Include="Interfaces\IListRows.cs" />
+    <Compile Include="Interfaces\IName.cs" />
+    <Compile Include="Interfaces\INames.cs" />
+    <Compile Include="Interfaces\IOLEObject.cs" />
+    <Compile Include="Interfaces\IOLEObjects.cs" />
+    <Compile Include="Interfaces\IOval.cs" />
+    <Compile Include="Interfaces\IPageSetup.cs" />
+    <Compile Include="Interfaces\IPane.cs" />
+    <Compile Include="Interfaces\IPanes.cs" />
+    <Compile Include="Interfaces\IPicture.cs" />
+    <Compile Include="Interfaces\IPivotCache.cs" />
+    <Compile Include="Interfaces\IPivotCaches.cs" />
+    <Compile Include="Interfaces\IPivotCell.cs" />
+    <Compile Include="Interfaces\IPivotField.cs" />
+    <Compile Include="Interfaces\IPivotFields.cs" />
+    <Compile Include="Interfaces\IPivotItem.cs" />
+    <Compile Include="Interfaces\IPivotItemList.cs" />
+    <Compile Include="Interfaces\IPivotItems.cs" />
+    <Compile Include="Interfaces\IPivotTable.cs" />
+    <Compile Include="Interfaces\IPivotTables.cs" />
+    <Compile Include="Interfaces\IPlotArea.cs" />
+    <Compile Include="Interfaces\IPoint.cs" />
+    <Compile Include="Interfaces\IPoints.cs" />
+    <Compile Include="Interfaces\IRange.cs" />
+    <Compile Include="Interfaces\IRectangle.cs" />
+    <Compile Include="Interfaces\IRectangularGradient.cs" />
+    <Compile Include="Interfaces\ISeries.cs" />
+    <Compile Include="Interfaces\ISeriesCollection.cs" />
+    <Compile Include="Interfaces\ISeriesLines.cs" />
+    <Compile Include="Interfaces\IShape.cs" />
+    <Compile Include="Interfaces\IShapeRange.cs" />
+    <Compile Include="Interfaces\IShapes.cs" />
+    <Compile Include="Interfaces\ISheet.cs" />
+    <Compile Include="Interfaces\ISheets.cs" />
+    <Compile Include="Interfaces\ISheetsBase.cs" />
+    <Compile Include="Interfaces\ITextBox.cs" />
+    <Compile Include="Interfaces\ITextFrame2.cs" />
+    <Compile Include="Interfaces\ITheme.cs" />
+    <Compile Include="Interfaces\IThemeColorScheme.cs" />
+    <Compile Include="Interfaces\IThemeFontScheme.cs" />
+    <Compile Include="Interfaces\ITickLabels.cs" />
+    <Compile Include="Interfaces\ITrendline.cs" />
+    <Compile Include="Interfaces\IValidation.cs" />
+    <Compile Include="Interfaces\IVisualBasicEditor.cs" />
+    <Compile Include="Interfaces\IVisualBasicEditorWindow.cs" />
+    <Compile Include="Interfaces\IWalls.cs" />
+    <Compile Include="Interfaces\IWindow.cs" />
+    <Compile Include="Interfaces\IWindows.cs" />
+    <Compile Include="Interfaces\IWorkbook.cs" />
+    <Compile Include="Interfaces\IWorkbookConnection.cs" />
+    <Compile Include="Interfaces\IWorkbooks.cs" />
+    <Compile Include="Interfaces\IWorksheet.cs" />
+    <Compile Include="Interfaces\IWorksheetFunction.cs" />
+    <Compile Include="Interfaces\IWorksheets.cs" />
+    <Compile Include="Interior.cs" />
+    <Compile Include="Legend.cs" />
+    <Compile Include="LegendEntries.cs" />
+    <Compile Include="LegendEntry.cs" />
+    <Compile Include="LegendKey.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="LinearGradient.cs" />
+    <Compile Include="LineFormat.cs" />
+    <Compile Include="ListObject.cs" />
+    <Compile Include="ListObjects.cs" />
+    <Compile Include="ListRows.cs" />
+    <Compile Include="Name.cs" />
+    <Compile Include="Names.cs" />
+    <Compile Include="OLEObject.cs" />
+    <Compile Include="OLEObjects.cs" />
+    <Compile Include="Oval.cs" />
+    <Compile Include="PageSetup.cs" />
+    <Compile Include="Pane.cs" />
+    <Compile Include="Panes.cs" />
+    <Compile Include="Picture.cs" />
+    <Compile Include="PivotCache.cs" />
+    <Compile Include="PivotCaches.cs" />
+    <Compile Include="PivotCell.cs" />
+    <Compile Include="PivotField.cs" />
+    <Compile Include="PivotFields.cs" />
+    <Compile Include="PivotItem.cs" />
+    <Compile Include="PivotItemList.cs" />
+    <Compile Include="PivotItems.cs" />
+    <Compile Include="PivotTable.cs" />
+    <Compile Include="PivotTables.cs" />
+    <Compile Include="PlotArea.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="Points.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Enums\AxisCrosses.cs" />
+    <Compile Include="Enums\AxisGroup.cs" />
+    <Compile Include="Enums\AxisType.cs" />
+    <Compile Include="Enums\BordersIndex.cs" />
+    <Compile Include="Enums\BorderWeight.cs" />
+    <Compile Include="Enums\Calculation.cs" />
+    <Compile Include="Enums\CategoryType.cs" />
+    <Compile Include="Enums\CellType.cs" />
+    <Compile Include="Enums\ChartLocation.cs" />
+    <Compile Include="Enums\ChartType.cs" />
+    <Compile Include="Enums\CmdType.cs" />
+    <Compile Include="Enums\ColorIndex.cs" />
+    <Compile Include="Enums\CopyPictureFormat.cs" />
+    <Compile Include="Enums\DataLabelPosition.cs" />
+    <Compile Include="Enums\DisplayBlanksAs.cs" />
+    <Compile Include="Enums\DisplayUnit.cs" />
+    <Compile Include="Enums\FileFormat.cs" />
+    <Compile Include="Enums\FindLookIn.cs" />
+    <Compile Include="Enums\FixedFormatType.cs" />
+    <Compile Include="Enums\HorizontalAlignment.cs" />
+    <Compile Include="Enums\LegendPosition.cs" />
+    <Compile Include="Enums\LineStyle.cs" />
+    <Compile Include="Enums\LookAt.cs" />
+    <Compile Include="Enums\MarkerStyle.cs" />
+    <Compile Include="Enums\MousePointer.cs" />
+    <Compile Include="Enums\ObjectSize.cs" />
+    <Compile Include="Enums\PageOrientation.cs" />
+    <Compile Include="Enums\PasteSpecialOperation.cs" />
+    <Compile Include="Enums\PasteToChartType.cs" />
+    <Compile Include="Enums\PasteType.cs" />
+    <Compile Include="Enums\Pattern.cs" />
+    <Compile Include="Enums\PictureAppearance.cs" />
+    <Compile Include="Enums\PivotCellType.cs" />
+    <Compile Include="Enums\PivotFieldOrientation.cs" />
+    <Compile Include="Enums\PivotTableSourceType.cs" />
+    <Compile Include="Enums\PivotTableVersionList.cs" />
+    <Compile Include="Enums\PlacementType.cs" />
+    <Compile Include="Enums\ReadingOrder.cs" />
+    <Compile Include="Enums\ReferenceStyle.cs" />
+    <Compile Include="Enums\RowCol.cs" />
+    <Compile Include="Enums\SaveAsAccessMode.cs" />
+    <Compile Include="Enums\ScaleType.cs" />
+    <Compile Include="Enums\SearchDirection.cs" />
+    <Compile Include="Enums\SearchOrder.cs" />
+    <Compile Include="Enums\SelectionType.cs" />
+    <Compile Include="Enums\SheetType.cs" />
+    <Compile Include="Enums\SheetVisibility.cs" />
+    <Compile Include="Enums\TextOrientation.cs" />
+    <Compile Include="Enums\TickLabelPosition.cs" />
+    <Compile Include="Enums\UnderlineStyle.cs" />
+    <Compile Include="Enums\VerticalAlignment.cs" />
+    <Compile Include="Range.cs" />
+    <Compile Include="Rectangle.cs" />
+    <Compile Include="RectangularGradient.cs" />
+    <Compile Include="Resources\Content.Designer.cs" />
+    <Compile Include="Series.cs" />
+    <Compile Include="SeriesCollection.cs" />
+    <Compile Include="SeriesLines.cs" />
+    <Compile Include="Shape.cs" />
+    <Compile Include="ShapeRange.cs" />
+    <Compile Include="Shapes.cs" />
+    <Compile Include="Sheets.cs" />
+    <Compile Include="SingleExcelApplicationLoader.cs" />
+    <Compile Include="TextBox.cs" />
+    <Compile Include="TextFrame2.cs" />
+    <Compile Include="Theme.cs" />
+    <Compile Include="ThemeColorScheme.cs" />
+    <Compile Include="ThemeFontScheme.cs" />
+    <Compile Include="TickLabels.cs" />
+    <Compile Include="Trendline.cs" />
+    <Compile Include="UpBars.cs" />
+    <Compile Include="Utils\ConnectionPointHelper.cs" />
+    <Compile Include="Utils\LockHelper.cs" />
+    <Compile Include="Validation.cs" />
+    <Compile Include="VisualBasicEditor.cs" />
+    <Compile Include="VisualBasicEditorWindow.cs" />
+    <Compile Include="Walls.cs" />
+    <Compile Include="Window.cs" />
+    <Compile Include="Windows.cs" />
+    <Compile Include="Workbook.cs" />
+    <Compile Include="WorkbookConnection.cs" />
+    <Compile Include="Workbooks.cs" />
+    <Compile Include="WorkbooksCollector.cs" />
+    <Compile Include="WorkbookTemplateFactory.cs" />
+    <Compile Include="Worksheet.cs" />
+    <Compile Include="WorksheetFunction.cs" />
+    <Compile Include="Worksheets.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FinancialAnalytics.Wrappers.Office\FinancialAnalytics.Wrappers.Office.csproj">
+      <Project>{8b3c5200-43eb-4658-8c20-fda7b8cae223}</Project>
+      <Name>FinancialAnalytics.Wrappers.Office</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Content.ja-JP.resx" />
+    <EmbeddedResource Include="Resources\Content.resx" />
+    <EmbeddedResource Include="Resources\Content.zh-CN.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

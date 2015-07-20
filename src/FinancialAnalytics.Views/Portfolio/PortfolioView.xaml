@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="FinancialAnalytics.Views.Portfolio.PortfolioView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="870">
+   
+    <Border BorderThickness="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition Height="17*"></RowDefinition>
+                <RowDefinition Height="1.7*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <xctk:WatermarkTextBox x:Name="Symbols" Watermark="Enter Symbol" Margin="20,0" Width="200" cal:Message.Attach="[Event KeyUp] = [Action ExecuteAddQuotes($executionContext)]"/>
+                <Button x:Name="AddQuotes" Content="[+] Add Symbol" Width="100"></Button>
+            </StackPanel>
+            <Border Grid.Row="1" BorderThickness="10"></Border>
+            <Border Grid.Row="2" BorderThickness="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TabControl x:Name="Items" SelectedItem="{Binding SelectedView, Mode=TwoWay}">
+                        <TabControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path='DisplayName'}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </TabControl.ItemTemplate>
+                    </TabControl>
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" BorderThickness="5">
+                <DockPanel LastChildFill="false">
+                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                        <CheckBox x:Name="AsSelected" Margin="50,0">Active Quote</CheckBox>
+                        <CheckBox x:Name="AsFormulas">As Formula</CheckBox>
+                        <Button x:Name="Insert" Width="115" Height="25" Content="Insert into Excel [+]" Margin="50,0"></Button>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

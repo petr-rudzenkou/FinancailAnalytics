@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84483759-7630-4207-957C-40C9CBCBC8BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinancialAnalytics.Views</RootNamespace>
+    <AssemblyName>FinancialAnalytics.Views</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\build\Debug\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\build\Release\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release64|AnyCPU'">
+    <OutputPath>..\..\build\Release64\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\..\lib\Caliburn\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="DryTools, Version=1.15.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Tools\DryTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\lib\Unity\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Caliburn\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\..\lib\WPFToolkit\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Controls\RemoveButton.cs" />
+    <Compile Include="Base\Converters\InPortfolioConverter.cs" />
+    <Compile Include="Base\Converters\PercentageConverter.cs" />
+    <Compile Include="Base\Converters\PriceGainConverter.cs" />
+    <Compile Include="Base\Converters\PriceGainFontColorConverter.cs" />
+    <Compile Include="Base\IQuotesCollectionBase.cs" />
+    <Compile Include="Base\QuotesCollectionBase.cs" />
+    <Compile Include="Charts\ChartsInfoView.xaml.cs">
+      <DependentUpon>ChartsInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Charts\ChartsInfoViewModel.cs" />
+    <Compile Include="Charts\ChartsView.xaml.cs">
+      <DependentUpon>ChartsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Charts\ChartsViewModel.cs" />
+    <Compile Include="Charts\Converters\CompareVsIdsConverter.cs" />
+    <Compile Include="Charts\CriteriaGroups\CompareVsGroup.cs" />
+    <Compile Include="Charts\GroupContainers\BasicGroupContainer.cs" />
+    <Compile Include="Charts\CriteriaGroups\OverlaysGroup.cs" />
+    <Compile Include="Charts\CriteriaGroups\RangeGroup.cs" />
+    <Compile Include="Charts\CriteriaGroups\ChartCriteriaGroup.cs" />
+    <Compile Include="Charts\CriteriaGroups\EMAGroup.cs" />
+    <Compile Include="Charts\CriteriaGroups\IndicatorsGroup.cs" />
+    <Compile Include="Charts\CriteriaGroups\MovingAvgGroup.cs" />
+    <Compile Include="Charts\CriteriaGroups\ScaleGroup.cs" />
+    <Compile Include="Charts\CriteriaGroups\SizeGroup.cs" />
+    <Compile Include="Charts\CriteriaGroups\TypeGroup.cs" />
+    <Compile Include="Charts\Criterias\ChartCriteria.cs" />
+    <Compile Include="Charts\Criterias\CompareVsCriteria.cs" />
+    <Compile Include="Charts\Criterias\EMACriteria.cs" />
+    <Compile Include="Charts\Criterias\IndicatorCriteria.cs" />
+    <Compile Include="Charts\Criterias\MovingAvgCriteria.cs" />
+    <Compile Include="Charts\Criterias\OverlaysCriteria.cs" />
+    <Compile Include="Charts\Criterias\RangeCriteria.cs" />
+    <Compile Include="Charts\Criterias\ScaleCriteria.cs" />
+    <Compile Include="Charts\Criterias\SizeCriteria.cs" />
+    <Compile Include="Charts\Criterias\TypeCriteria.cs" />
+    <Compile Include="Charts\GroupContainers\CriteriaGroupContainer.cs" />
+    <Compile Include="Charts\GroupContainers\IndicatorsContainer.cs" />
+    <Compile Include="Charts\GroupContainers\MovingAvgContainer.cs" />
+    <Compile Include="Charts\GroupContainers\OverlaysContainer.cs" />
+    <Compile Include="Charts\Interfaces\IChartsInfoViewModel.cs" />
+    <Compile Include="Charts\Interfaces\IChartsViewModel.cs" />
+    <Compile Include="Charts\TemplateSelectors\CriteriaGroupTemplateSelector.cs" />
+    <Compile Include="Events\AddToPortfolioEvent.cs" />
+    <Compile Include="Events\GetChartEvent.cs" />
+    <Compile Include="Events\GetQuotesEvent.cs" />
+    <Compile Include="ExcelExport\ExcelExporter.cs" />
+    <Compile Include="ExcelExport\IExcelExporter.cs" />
+    <Compile Include="HistoricalData\Behaviour\DatePickerWatermarkBehaviour.cs" />
+    <Compile Include="HistoricalData\Controls\UsDatePicker.cs" />
+    <Compile Include="HistoricalData\HistoricalDataView.xaml.cs">
+      <DependentUpon>HistoricalDataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoricalData\HistoricalDataViewModel.cs" />
+    <Compile Include="HistoricalData\Interfaces\IHistoricalDataViewModel.cs" />
+    <Compile Include="IViewModel.cs" />
+    <Compile Include="IViewModelFactory.cs" />
+    <Compile Include="IViewsRenderer.cs" />
+    <Compile Include="Login\Interfaces\ILoginViewModel.cs" />
+    <Compile Include="Login\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginViewModel.cs" />
+    <Compile Include="Options\Interfaces\IOptionsViewModel.cs" />
+    <Compile Include="Options\OptionsView.xaml.cs">
+      <DependentUpon>OptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Options\OptionsViewModel.cs" />
+    <Compile Include="Options\TemplateSelectors\OptionsDataTemplateSelector.cs" />
+    <Compile Include="Portfolio\Base\PortfolioViewModelBase.cs" />
+    <Compile Include="Portfolio\Base\PortfolioQuotesCollection.cs" />
+    <Compile Include="Portfolio\Base\IPortfolioQuotesCollection.cs" />
+    <Compile Include="Portfolio\Converters\MediumImageConverter.cs" />
+    <Compile Include="Portfolio\Converters\PercentChangeConverter.cs" />
+    <Compile Include="Portfolio\Converters\SmallImageConverter.cs" />
+    <Compile Include="Portfolio\Interfaces\IPortfolioDetailedViewModel.cs" />
+    <Compile Include="Portfolio\Interfaces\IPortfolioBasicViewModel.cs" />
+    <Compile Include="Portfolio\Interfaces\IPortfolioFundamentalsViewModel.cs" />
+    <Compile Include="Portfolio\Interfaces\IPortfolioPerformanceViewModel.cs" />
+    <Compile Include="Portfolio\Interfaces\IPortfolioViewModel.cs" />
+    <Compile Include="Portfolio\Interfaces\IPortfolioViewModelBase.cs" />
+    <Compile Include="Portfolio\PortfolioBasicView.xaml.cs">
+      <DependentUpon>PortfolioBasicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Portfolio\PortfolioDetailedView.xaml.cs">
+      <DependentUpon>PortfolioDetailedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Portfolio\PortfolioDetailedViewModel.cs" />
+    <Compile Include="Portfolio\PortfolioBasicViewModel.cs" />
+    <Compile Include="Portfolio\PortfolioFundamentalsView.xaml.cs">
+      <DependentUpon>PortfolioFundamentalsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Portfolio\PortfolioFundamentalsViewModel.cs" />
+    <Compile Include="Portfolio\PortfolioPerformanceView.xaml.cs">
+      <DependentUpon>PortfolioPerformanceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Portfolio\PortfolioPerformanceViewModel.cs" />
+    <Compile Include="Portfolio\PortfolioView.xaml.cs">
+      <DependentUpon>PortfolioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Portfolio\PortfolioViewModel.cs" />
+    <Compile Include="ProgressBar\IProgressBarService.cs" />
+    <Compile Include="ProgressBar\IProgressBarViewModel.cs" />
+    <Compile Include="ProgressBar\ProgressBarService.cs" />
+    <Compile Include="ProgressBar\ProgressBarView.xaml.cs">
+      <DependentUpon>ProgressBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressBar\ProgressBarViewModel.cs" />
+    <Compile Include="Quotes\Base\QuotesCollection.cs" />
+    <Compile Include="Base\Controls\CloseTabButton.cs" />
+    <Compile Include="Quotes\Interfaces\IQuotesCollection.cs" />
+    <Compile Include="Quotes\Interfaces\IQuotesInfoViewModel.cs" />
+    <Compile Include="Quotes\Interfaces\IQuotesViewModel.cs" />
+    <Compile Include="Quotes\QuotesInfoViewModel.cs" />
+    <Compile Include="Quotes\QuotesInfoView.xaml.cs">
+      <DependentUpon>QuotesInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Quotes\QuotesView.xaml.cs">
+      <DependentUpon>QuotesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Quotes\QuotesViewModel.cs" />
+    <Compile Include="Screener\Base\IScreenerResultsCollection.cs" />
+    <Compile Include="Screener\Controls\RangeTextBox.cs" />
+    <Compile Include="Screener\Events\CancelScreenEvent.cs" />
+    <Compile Include="Screener\Events\RunScreenEvent.cs" />
+    <Compile Include="Screener\Events\ScreenCompletedEvent.cs" />
+    <Compile Include="Screener\Events\ScreenerClosedEvent.cs" />
+    <Compile Include="Screener\TemplateSelectors\CriteriaTemplateSelector.cs" />
+    <Compile Include="Screener\Base\ScreenerResultsCollection.cs" />
+    <Compile Include="Search\Interfaces\ISearchViewModel.cs" />
+    <Compile Include="Search\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search\SearchViewModel.cs" />
+    <Compile Include="ViewModelFactory.cs" />
+    <Compile Include="ViewSettings\IWindowSettingsFactory.cs" />
+    <Compile Include="LeagueTable\Interfaces\ILeagueTableViewModel.cs" />
+    <Compile Include="LeagueTable\LeagueTableView.xaml.cs">
+      <DependentUpon>LeagueTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeagueTable\LeagueTableViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screener\Interfaces\IScreenBuilderViewModel.cs" />
+    <Compile Include="Screener\Interfaces\IScreenResultsViewModel.cs" />
+    <Compile Include="Screener\Interfaces\IScreenerViewModel.cs" />
+    <Compile Include="Screener\ScreenBuilderView.xaml.cs">
+      <DependentUpon>ScreenBuilderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screener\ScreenBuilderViewModel.cs" />
+    <Compile Include="Screener\ScreenerView.xaml.cs">
+      <DependentUpon>ScreenerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screener\ScreenerViewModel.cs" />
+    <Compile Include="Screener\ScreenResultsView.xaml.cs">
+      <DependentUpon>ScreenResultsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screener\ScreenResultsViewModel.cs" />
+    <Compile Include="ViewsBootstrapper.cs" />
+    <Compile Include="ViewSettings\WindowSettings.cs" />
+    <Compile Include="ViewsRenderer.cs" />
+    <Compile Include="ViewType.cs" />
+    <Compile Include="ViewSettings\WindowSettingsFactory.cs" />
+    <Compile Include="XChangeRates\Interfaces\IXChangeRatesViewModel.cs" />
+    <Compile Include="XChangeRates\XChangeRatesView.xaml.cs">
+      <DependentUpon>XChangeRatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XChangeRates\XChangeRatesViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Charts\ChartsInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Charts\ChartsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoricalData\HistoricalDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LeagueTable\LeagueTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Options\OptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Portfolio\PortfolioBasicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Portfolio\PortfolioDetailedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Portfolio\PortfolioFundamentalsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Portfolio\PortfolioPerformanceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Portfolio\PortfolioView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProgressBar\ProgressBarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Quotes\QuotesInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Quotes\QuotesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screener\ScreenBuilderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screener\ScreenerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screener\ScreenResultsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search\SearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XChangeRates\XChangeRatesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FinancialAnalytics.AuthenticationClient\FinancialAnalytics.AuthenticationClient.csproj">
+      <Project>{78843032-4242-41dc-96dc-e8bf7b320383}</Project>
+      <Name>FinancialAnalytics.AuthenticationClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Core\FinancialAnalytics.Core.csproj">
+      <Project>{45a82d04-4f1d-4bb9-b550-8d4d33d12315}</Project>
+      <Name>FinancialAnalytics.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.DataFacades\FinancialAnalytics.DataFacades.csproj">
+      <Project>{e4a57f34-4b63-4e97-962d-060d39a5d7df}</Project>
+      <Name>FinancialAnalytics.DataFacades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Presentation\FinancialAnalytics.Presentation.csproj">
+      <Project>{fcdbaf2a-dd12-4beb-ae74-d5969e5cc540}</Project>
+      <Name>FinancialAnalytics.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Resources\FinancialAnalytics.Resources.csproj">
+      <Project>{24a26239-7e87-47a0-a797-e336f21987d4}</Project>
+      <Name>FinancialAnalytics.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Utils\FinancialAnalytics.Utils.csproj">
+      <Project>{cfc86b3a-d23e-4663-842e-91141ed5807c}</Project>
+      <Name>FinancialAnalytics.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Wrappers.Excel\FinancialAnalytics.Wrappers.Excel.csproj">
+      <Project>{9f3d09a1-a4d0-4280-b4cb-261e052d9c52}</Project>
+      <Name>FinancialAnalytics.Wrappers.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Wrappers.Office\FinancialAnalytics.Wrappers.Office.csproj">
+      <Project>{8b3c5200-43eb-4658-8c20-fda7b8cae223}</Project>
+      <Name>FinancialAnalytics.Wrappers.Office</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="FinancialAnalytics.Views.Charts.ChartsInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:templateSelectors="clr-namespace:FinancialAnalytics.Views.Charts.TemplateSelectors"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Color x:Key="BG_Start_WindowHeader_Color">#3f4c6b</Color>
+        <Color x:Key="BG_End_WindowHeader_Color">#3f4c6b</Color>
+        <LinearGradientBrush x:Key="GradientBrush_BG_WindowHeader" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Offset="0" Color="{StaticResource BG_Start_WindowHeader_Color}" />
+            <GradientStop Offset="1" Color="{StaticResource BG_End_WindowHeader_Color}" />
+        </LinearGradientBrush>
+
+        <Style TargetType="ToggleButton">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="ExternalButtonBorder" BorderThickness="1" Background="{StaticResource GradientBrush_BG_WindowHeader}" >
+                            <Border CornerRadius="0" x:Name="ButtonBorder" BorderThickness="1" Background="White" Padding="5,0">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#FFFF66"/>
+                                <Setter Property="TextElement.Foreground" Value="{StaticResource GradientBrush_BG_WindowHeader}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="BasicGroupTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding DisplayName}" FontWeight="Bold"></TextBlock>
+                <TextBlock Text=": " FontWeight="Bold"></TextBlock>
+                <ListBox ItemsSource="{Binding ChartCriterias}" SelectionMode="Single" Background="Transparent" BorderThickness="0">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Padding" Value="0,0"></Setter>
+                            <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True" >
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                            </Style.Triggers>
+                            <Style.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                            </Style.Resources>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ToggleButton  Content="{Binding DisplayName}" cal:Message.Attach="GetChart()">
+                                <ToggleButton.IsChecked>
+                                    <Binding Path="IsSelected" Mode="TwoWay" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}"></Binding>
+                                </ToggleButton.IsChecked>
+                            </ToggleButton>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="OtherGroupTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding DisplayName}" FontWeight="Bold"></TextBlock>
+                <TextBlock Text=": " FontWeight="Bold"></TextBlock>
+                <ItemsControl ItemsSource="{Binding ChartCriterias}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ToggleButton IsChecked="{Binding IsSelected, Mode=TwoWay}" Content="{Binding DisplayName}" cal:Message.Attach="GetChart()"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CompareVsGroupTemplate">
+            <ItemsControl ItemsSource="{Binding ChartCriterias}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Compare" FontWeight="Bold"></TextBlock>
+                            <TextBlock Text=" vs: " FontWeight="Bold"></TextBlock>
+                            <TextBox Text="{Binding Mode=TwoWay, Path=Ids}" Width="150" cal:Message.Attach="[Event KeyUp] = [Action ExecuteGetChart($executionContext)]"/>
+                            <Button Content="Compare [=]" Width="85" cal:Message.Attach="GetChart()"></Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            
+        </DataTemplate>
+
+        <templateSelectors:CriteriaGroupTemplateSelector x:Key="CriteriaGroupTemplateSelector"
+                                                    BasicGroupTemplate="{StaticResource BasicGroupTemplate}"
+                                                    CompareVsGroupTemplate="{StaticResource CompareVsGroupTemplate}"
+                                                    OtherGroupTemplate="{StaticResource OtherGroupTemplate}"/>
+
+    </UserControl.Resources>
+    <Grid Background="White" x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderThickness="1">
+            <ItemsControl x:Name="GroupContainers">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ItemsControl ItemsSource="{Binding ChartCriteriaGroups}"
+                                      ItemTemplateSelector="{StaticResource CriteriaGroupTemplateSelector}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+        <Grid Grid.Row="1">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Image x:Name="Chart"></Image>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

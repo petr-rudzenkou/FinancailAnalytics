@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="FinancialAnalytics.Views.Portfolio.PortfolioPerformanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:converters="clr-namespace:FinancialAnalytics.Views.Base.Converters"
+             xmlns:controls="clr-namespace:FinancialAnalytics.Views.Base.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:PriceGainConverter x:Key="PriceGainConverter"/>
+        <converters:PriceGainFontColorConverter x:Key="PriceGainFontColorConverter"/>
+    </UserControl.Resources>
+    <Border BorderThickness="5">
+        <Grid>
+            <DataGrid x:Name="Quotes" IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="PowderBlue">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="SYMBOL">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Symbol}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="PRICE">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Open}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="CHG &amp; % CHG">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Change_PercentChange, Converter={StaticResource PriceGainConverter}}" Foreground="{Binding Change_PercentChange, Converter={StaticResource PriceGainFontColorConverter}}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="YEAR'S LOW">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding YearLow}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="YEAR'S HIGH">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding YearHigh}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="VOLUME">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Volume}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <controls:RemoveButton Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <cal:ActionMessage MethodName="RemoveQuotes" >
+                                                <cal:Parameter Value="{Binding Symbol}" />
+                                            </cal:ActionMessage>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </controls:RemoveButton>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Width="60" Height="16" Padding="0,0" Content="Quotes" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderThickness="0" Cursor="Hand" Foreground="MidnightBlue">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <cal:ActionMessage MethodName="GetQuotes" >
+                                                    <cal:Parameter Value="{Binding Symbol}" />
+                                                </cal:ActionMessage>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Button>
+                                    <TextBlock Text="|"></TextBlock>
+                                    <Button Width="60" Height="16" Padding="0,0" Content="Charts" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderThickness="0" Cursor="Hand" Foreground="MidnightBlue">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <cal:ActionMessage MethodName="GetChart" >
+                                                    <cal:Parameter Value="{Binding Symbol}" />
+                                                </cal:ActionMessage>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Border>
+</UserControl>

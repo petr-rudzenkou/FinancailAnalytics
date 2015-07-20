@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="FinancialAnalytics.Views.HistoricalData.HistoricalDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:controls="clr-namespace:FinancialAnalytics.Views.HistoricalData.Controls"
+             xmlns:behaviour="clr-namespace:FinancialAnalytics.Views.HistoricalData.Behaviour"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Border BorderThickness="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="14*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Symbol: " Margin="0,1.5"></TextBlock>
+                    <xctk:WatermarkTextBox Grid.Row="0" Grid.Column="1" x:Name="Symbol" Watermark="Enter Symbol" Width="200" Margin="0,1.5" HorizontalAlignment="Left"/>
+                    <TextBlock  Grid.Row="1" Grid.Column="0" Text="Start Date: " Margin="0,1.5"></TextBlock>
+                    <controls:UsDatePicker behaviour:DatePickerWatermarkBehaviour.Watermark="Select a Date" Grid.Row="1" Grid.Column="1" x:Name="StartDate" Margin="0,1.5"></controls:UsDatePicker>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="End Date: " Margin="0,1.5"></TextBlock>
+                    <controls:UsDatePicker behaviour:DatePickerWatermarkBehaviour.Watermark="Select a Date" Grid.Row="2" Grid.Column="1" x:Name="EndDate" Margin="0,1.5"></controls:UsDatePicker>
+                </Grid>
+                <Button Grid.Row="1" x:Name="GetPrices" Content="Get Prices" HorizontalAlignment="Center" VerticalAlignment="Center" Width="85" Height="25"></Button>
+            </Grid>
+            <DataGrid Grid.Row="1" x:Name="HistoricalDatas" IsReadOnly="True" AlternatingRowBackground="PowderBlue" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="SYMBOL" Binding="{Binding Symbol}"/>
+                    <DataGridTextColumn Header="DATE" Binding="{Binding Date}"/>
+                    <DataGridTextColumn Header="OPEN" Binding="{Binding Open}"/>
+                    <DataGridTextColumn Header="HIGH" Binding="{Binding High}"/>
+                    <DataGridTextColumn Header="LOW" Binding="{Binding Low}"/>
+                    <DataGridTextColumn Header="CLOSE" Binding="{Binding Close}"/>
+                    <DataGridTextColumn Header="VOLUME" Binding="{Binding Volume}"/>
+                    <DataGridTextColumn Header="ADJClOSE" Binding="{Binding Adj_Close}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Width="60" Height="16" Padding="0,0" Content="Quotes" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderThickness="0" Cursor="Hand" Foreground="MidnightBlue">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <cal:ActionMessage MethodName="GetQuotes" >
+                                                    <cal:Parameter Value="{Binding Symbol}" />
+                                                </cal:ActionMessage>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Button>
+                                    <TextBlock Text="|"></TextBlock>
+                                    <Button Width="60" Height="16" Padding="0,0" Content="Charts" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderThickness="0" Cursor="Hand" Foreground="MidnightBlue">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Click">
+                                                <cal:ActionMessage MethodName="GetChart" >
+                                                    <cal:Parameter Value="{Binding Symbol}" />
+                                                </cal:ActionMessage>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Row="2" HorizontalAlignment="Stretch">
+                <DockPanel LastChildFill="False">
+                    <Button DockPanel.Dock="Right" x:Name="Insert" Content="Insert into Excel [+]" Width="115" Height="25" Margin="15,0"></Button>
+                </DockPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

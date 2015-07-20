@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.31029</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C8E1964E-4D29-462E-942C-B0584604C714}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>FinancialAnalytics</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\build\Debug\Bin\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IncrementalBuild>false</IncrementalBuild>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\build\Release\Bin\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <IncrementalBuild>false</IncrementalBuild>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>FinancialAnalytics</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release64|AnyCPU'">
+    <OutputPath>..\..\build\Release64\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=1.5.2.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Caliburn\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="DryTools, Version=1.15.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Tools\DryTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Extensibility, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\lib\Unity\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>System.dll</HintPath>
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>System.Data.dll</HintPath>
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Caliburn\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML">
+      <HintPath>System.XML.dll</HintPath>
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>Microsoft.CSharp.dll</HintPath>
+      <Name>Microsoft.CSharp</Name>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bootstrapping\CommonBootstrapper.cs" />
+    <Compile Include="Connect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExcelUI\ExcelUIContainerConfigurator.cs" />
+    <Compile Include="ExcelUI\IconManager.cs" />
+    <Compile Include="ExcelUI\IRefreshManager.cs" />
+    <Compile Include="ExcelUI\IRibbon.cs" />
+    <Compile Include="ExcelUI\IRibbonElement.cs" />
+    <Compile Include="ExcelUI\RefreshManager.cs" />
+    <Compile Include="ExcelUI\Ribbon.cs" />
+    <Compile Include="ExcelUI\RibbonBase.cs" />
+    <Compile Include="ExcelUI\RibbonElement.cs" />
+    <Compile Include="ExcelUI\RibbonIds.cs" />
+    <Compile Include="ExcelUI\Ribbons\IDataToolsRibbon.cs" />
+    <Compile Include="ExcelUI\Ribbons\DataToolsRibbon.cs" />
+    <Compile Include="ResourceX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceX.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ExcelUI\Ribbons\RibbonExcel.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FinancialAnalytics.AuthenticationClient\FinancialAnalytics.AuthenticationClient.csproj">
+      <Project>{78843032-4242-41dc-96dc-e8bf7b320383}</Project>
+      <Name>FinancialAnalytics.AuthenticationClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Core\FinancialAnalytics.Core.csproj">
+      <Project>{45a82d04-4f1d-4bb9-b550-8d4d33d12315}</Project>
+      <Name>FinancialAnalytics.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.DataFacades\FinancialAnalytics.DataFacades.csproj">
+      <Project>{e4a57f34-4b63-4e97-962d-060d39a5d7df}</Project>
+      <Name>FinancialAnalytics.DataFacades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Formulas\FinancialAnalytics.Formulas.csproj">
+      <Project>{0462f0f3-47cc-48af-a639-08d71fd7491a}</Project>
+      <Name>FinancialAnalytics.Formulas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Presentation\FinancialAnalytics.Presentation.csproj">
+      <Project>{fcdbaf2a-dd12-4beb-ae74-d5969e5cc540}</Project>
+      <Name>FinancialAnalytics.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Resources\FinancialAnalytics.Resources.csproj">
+      <Project>{24a26239-7e87-47a0-a797-e336f21987d4}</Project>
+      <Name>FinancialAnalytics.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Utils\FinancialAnalytics.Utils.csproj">
+      <Project>{cfc86b3a-d23e-4663-842e-91141ed5807c}</Project>
+      <Name>FinancialAnalytics.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Views\FinancialAnalytics.Views.csproj">
+      <Project>{84483759-7630-4207-957c-40c9cbcbc8bf}</Project>
+      <Name>FinancialAnalytics.Views</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Wrappers.Excel\FinancialAnalytics.Wrappers.Excel.csproj">
+      <Project>{9f3d09a1-a4d0-4280-b4cb-261e052d9c52}</Project>
+      <Name>FinancialAnalytics.Wrappers.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Wrappers.Office\FinancialAnalytics.Wrappers.Office.csproj">
+      <Project>{8b3c5200-43eb-4658-8c20-fda7b8cae223}</Project>
+      <Name>FinancialAnalytics.Wrappers.Office</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ResourceX.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions />
+</Project>

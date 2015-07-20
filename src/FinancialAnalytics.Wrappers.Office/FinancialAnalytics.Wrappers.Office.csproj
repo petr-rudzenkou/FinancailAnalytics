@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B3C5200-43EB-4658-8C20-FDA7B8CAE223}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinancialAnalytics.Wrappers.Office</RootNamespace>
+    <AssemblyName>FinancialAnalytics.Wrappers.Office</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\build\Debug\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\build\Release\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release64|AnyCPU'">
+    <OutputPath>..\..\build\Release64\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationIds.cs" />
+    <Compile Include="ApplicationVersionToOfficeVersionConverter.cs" />
+    <Compile Include="ColorFormat.cs" />
+    <Compile Include="COMAddIn.cs" />
+    <Compile Include="COMAddIns.cs" />
+    <Compile Include="COMExceptionChecker.cs" />
+    <Compile Include="CommandBar.cs" />
+    <Compile Include="CommandBarButton.cs" />
+    <Compile Include="CommandBarControl.cs" />
+    <Compile Include="CommandBarControls.cs" />
+    <Compile Include="CommandBarPopup.cs" />
+    <Compile Include="CommandBars.cs" />
+    <Compile Include="CommonMessageFilter.cs" />
+    <Compile Include="ComObjectsFinalizer.cs" />
+    <Compile Include="Converters\MsoArrowheadLengthToArrowheadLengthConverter.cs" />
+    <Compile Include="Converters\MsoArrowheadStyleToArrowheadStyleConverter.cs" />
+    <Compile Include="Converters\MsoArrowheadWidthToArrowheadWidthConverter.cs" />
+    <Compile Include="Converters\MsoAutoShapeTypeToAutoShapeTypeConverter.cs" />
+    <Compile Include="Converters\MsoBevelTypeToBevelTypeConverter.cs" />
+    <Compile Include="Converters\MsoButtonStateToCommandBarButtonStateConverter.cs" />
+    <Compile Include="Converters\MsoColorTypeToColorTypeConverter.cs" />
+    <Compile Include="Converters\MsoControlTypeToControlTypeConverter.cs" />
+    <Compile Include="Converters\MsoEnumConverter.cs" />
+    <Compile Include="Converters\MsoExtrusionColorTypeToExtrusionColorTypeConverter.cs" />
+    <Compile Include="Converters\MsoFileDialogTypeToFileDialogTypeConverter.cs" />
+    <Compile Include="Converters\MsoFillTypeToFillTypeConverter.cs" />
+    <Compile Include="Converters\MsoGradientColorTypeToGradientColorType.cs" />
+    <Compile Include="Converters\MsoGradientStyleToGradientStyleConverter.cs" />
+    <Compile Include="Converters\MsoHorizontalAnchorToHorizontalAnchorConverter.cs" />
+    <Compile Include="Converters\MsoLightRigTypeToLightRigTypeConverter.cs" />
+    <Compile Include="Converters\MsoLineDashStyleToLineDashStyleConverter.cs" />
+    <Compile Include="Converters\MsoLineStyleToLineStyleConverter.cs" />
+    <Compile Include="Converters\MsoPatternTypeToPatternTypeConverter.cs" />
+    <Compile Include="Converters\MsoPictureColorTypeToPictureColorTypeConverter.cs" />
+    <Compile Include="Converters\MsoPresetCameraToPresetCameraConverter.cs" />
+    <Compile Include="Converters\MsoPresetExtrusionDirectionToPresetExtrusionDirectionConverter.cs" />
+    <Compile Include="Converters\MsoPresetGradientTypeToPresetGradientTypeCoverter.cs" />
+    <Compile Include="Converters\MsoPresetLightingDirectionToPresetLightingDirectionConverter.cs" />
+    <Compile Include="Converters\MsoPresetLightingSoftnessToPresetLightingSoftnessConverter.cs" />
+    <Compile Include="Converters\MsoPresetMaterialToPresetMaterialConverter.cs" />
+    <Compile Include="Converters\MsoPresetTextureToPresetTextureConverter.cs" />
+    <Compile Include="Converters\MsoPresetThreeDFormatToPresetThreeDFormatConverter.cs" />
+    <Compile Include="Converters\MsoScaleFromToScaleFromConverter.cs" />
+    <Compile Include="Converters\MsoShadowStyleToShadowStyleConverter.cs" />
+    <Compile Include="Converters\MsoShadowTypeToShadowTypeConverter.cs" />
+    <Compile Include="Converters\MsoShapeTypeToShapeTypeConverter.cs" />
+    <Compile Include="Converters\MsoTextOrientationToTextOrientationConverter.cs" />
+    <Compile Include="Converters\MsoTextUnderlineTypeToTextUnderlineTypeConverter.cs" />
+    <Compile Include="Converters\MsoTextureAlignmentToTextureAlignmentConverter.cs" />
+    <Compile Include="Converters\MsoTextureTypeToTextureTypeConverter.cs" />
+    <Compile Include="Converters\MsoTriStateToBoolConverter.cs" />
+    <Compile Include="Converters\MsoVerticalAnchorToVerticalAnchorConverter.cs" />
+    <Compile Include="Converters\MsoZOrderCmdToZOrderCommandConverter.cs" />
+    <Compile Include="Converters\VersionStringToApplicationVersionConverter.cs" />
+    <Compile Include="CustomXmlNode.cs" />
+    <Compile Include="CustomXmlNodes.cs" />
+    <Compile Include="CustomXmlPart.cs" />
+    <Compile Include="CustomXmlParts.cs" />
+    <Compile Include="CustomXmlPrefixMappings.cs" />
+    <Compile Include="DocumentProperties.cs" />
+    <Compile Include="DocumentProperty.cs" />
+    <Compile Include="EntitiesCollectionWrapperBase.cs" />
+    <Compile Include="EntityResolverBase.cs" />
+    <Compile Include="EntityWrapperBase.cs" />
+    <Compile Include="Enums\ApplicationVersion.cs" />
+    <Compile Include="Enums\ArrowheadLength.cs" />
+    <Compile Include="Enums\ArrowheadStyle.cs" />
+    <Compile Include="Enums\ArrowheadWidth.cs" />
+    <Compile Include="Enums\AutoShapeType.cs" />
+    <Compile Include="Enums\BevelType.cs" />
+    <Compile Include="Enums\ColorType.cs" />
+    <Compile Include="Enums\CommandBarButtonState.cs" />
+    <Compile Include="Enums\ControlType.cs" />
+    <Compile Include="Enums\ExtrusionColorType.cs" />
+    <Compile Include="Enums\FileDialogType.cs" />
+    <Compile Include="Enums\FillType.cs" />
+    <Compile Include="Enums\GradientColorType.cs" />
+    <Compile Include="Enums\GradientStyle.cs" />
+    <Compile Include="Enums\HorizontalAnchor.cs" />
+    <Compile Include="Enums\LightRigType.cs" />
+    <Compile Include="Enums\LineDashStyle.cs" />
+    <Compile Include="Enums\LineStyle.cs" />
+    <Compile Include="Enums\PatternType.cs" />
+    <Compile Include="Enums\PictureColorType.cs" />
+    <Compile Include="Enums\PresetCamera.cs" />
+    <Compile Include="Enums\PresetExtrusionDirection.cs" />
+    <Compile Include="Enums\PresetGradientType.cs" />
+    <Compile Include="Enums\PresetLightingDirection.cs" />
+    <Compile Include="Enums\PresetLightingSoftness.cs" />
+    <Compile Include="Enums\PresetMaterial.cs" />
+    <Compile Include="Enums\PresetTexture.cs" />
+    <Compile Include="Enums\PresetThreeDFormat.cs" />
+    <Compile Include="Enums\ScaleFrom.cs" />
+    <Compile Include="Enums\ShadowStyle.cs" />
+    <Compile Include="Enums\ShadowType.cs" />
+    <Compile Include="Enums\ShapeType.cs" />
+    <Compile Include="Enums\TextOrientation.cs" />
+    <Compile Include="Enums\TextUnderlineType.cs" />
+    <Compile Include="Enums\TextureAlignment.cs" />
+    <Compile Include="Enums\TextureType.cs" />
+    <Compile Include="Enums\VerticalAnchor.cs" />
+    <Compile Include="Enums\WindowState.cs" />
+    <Compile Include="Enums\ZOrderCommand.cs" />
+    <Compile Include="EventBindingHelper.cs" />
+    <Compile Include="EventsRouting\ApplicationInitializedEventArgs.cs" />
+    <Compile Include="EventsRouting\Delegates.cs" />
+    <Compile Include="EventsRouting\ICommandBarButtonEvents.cs" />
+    <Compile Include="ExceptionHandling\EmptyExceptionHandler.cs" />
+    <Compile Include="ExceptionHandling\ExceptionHandler.cs" />
+    <Compile Include="ExceptionHandling\ExceptionHandlerType.cs" />
+    <Compile Include="ExceptionHandling\ExceptionHandlingConfigurationSettings.cs" />
+    <Compile Include="ExceptionHandling\IExceptionHandler.cs" />
+    <Compile Include="FileDialog.cs" />
+    <Compile Include="Font2.cs" />
+    <Compile Include="GradientStop.cs" />
+    <Compile Include="GradientStops.cs" />
+    <Compile Include="IMessageFilter.cs" />
+    <Compile Include="Interfaces\IApplicationCommon.cs" />
+    <Compile Include="Interfaces\IApplicationIds.cs" />
+    <Compile Include="Interfaces\ICollectionIndexer.cs" />
+    <Compile Include="Interfaces\IColorFormat.cs" />
+    <Compile Include="Interfaces\ICOMAddIn.cs" />
+    <Compile Include="Interfaces\ICOMAddIns.cs" />
+    <Compile Include="Interfaces\ICommandBar.cs" />
+    <Compile Include="Interfaces\ICommandBarButton.cs" />
+    <Compile Include="Interfaces\ICommandBarControl.cs" />
+    <Compile Include="Interfaces\ICommandBarControls.cs" />
+    <Compile Include="Interfaces\ICommandBarPopup.cs" />
+    <Compile Include="Interfaces\ICommandBars.cs" />
+    <Compile Include="Interfaces\ICustomXmlNode.cs" />
+    <Compile Include="Interfaces\ICustomXmlNodes.cs" />
+    <Compile Include="Interfaces\ICustomXmlPart.cs" />
+    <Compile Include="Interfaces\ICustomXmlParts.cs" />
+    <Compile Include="Interfaces\ICustomXmlPrefixMappings.cs" />
+    <Compile Include="Interfaces\IDocumentProperties.cs" />
+    <Compile Include="Interfaces\IDocumentProperty.cs" />
+    <Compile Include="Interfaces\IEntitiesCollectionWrapper.cs" />
+    <Compile Include="Interfaces\IEntityWrapper.cs" />
+    <Compile Include="Interfaces\IFileDialog.cs" />
+    <Compile Include="Interfaces\IFont2.cs" />
+    <Compile Include="Interfaces\IGradientStop.cs" />
+    <Compile Include="Interfaces\IGradientStops.cs" />
+    <Compile Include="Interfaces\ITextRange2.cs" />
+    <Compile Include="LateBindingInvoker.cs" />
+    <Compile Include="LazyEntitiesCollectionWrapper.cs" />
+    <Compile Include="LocalPathToUncConverter.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="OfficeApplicationType.cs" />
+    <Compile Include="OfficePathHelper.cs" />
+    <Compile Include="OfficeVersion.cs" />
+    <Compile Include="PictureDispConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepeatedCopyHelper.cs" />
+    <Compile Include="ScaleTransformOptions.cs" />
+    <Compile Include="StaComCrossThreadInvoker.cs" />
+    <Compile Include="TextRange2.cs" />
+    <Compile Include="Windows\HwndToComConverter.cs" />
+    <Compile Include="Windows\NativeMethods.cs" />
+    <Compile Include="Windows\NativeWindowsManager.cs" />
+    <Compile Include="Windows\OfficeWindowsManager.cs" />
+    <Compile Include="Windows\TopWindowsFinder.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

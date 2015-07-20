@@ -1,0 +1,33 @@
+﻿namespace FinancialAnalytics.Wrappers.Office.Enums
+{
+	public enum ControlType
+	{
+		ControlCustom,
+		ControlButton,
+		ControlEdit,
+		ControlDropdown,
+		ControlComboBox,
+		ControlButtonDropdown,
+		ControlSplitDropdown,
+		ControlOCXDropdown,
+		ControlGenericDropdown,
+		ControlGraphicDropdown,
+		ControlPopup,
+		ControlGraphicPopup,
+		ControlButtonPopup,
+		ControlSplitButtonPopup,
+		ControlSplitButtonMRUPopup,
+		ControlLabel,
+		ControlExpandingGrid,
+		ControlSplitExpandingGrid,
+		ControlGrid,
+		ControlGauge,
+		ControlGraphicCombo,
+		ControlPane,
+		ControlActiveX,
+		ControlSpinner,
+		ControlLabelEx,
+		ControlWorkPane,
+		ControlAutoCompleteCombo,
+	}
+}

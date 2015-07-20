@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4A57F34-4B63-4E97-962D-060D39A5D7DF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinancialAnalytics.DataFacades</RootNamespace>
+    <AssemblyName>FinancialAnalytics.DataFacades</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\build\Debug\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\build\Release\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release64|AnyCPU'">
+    <OutputPath>..\..\build\Release64\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DryTools, Version=1.15.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Tools\DryTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Unity\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\ConnectionInfo.cs" />
+    <Compile Include="Base\ConversionException.cs" />
+    <Compile Include="Base\DefaultDownloadCompletedEventArgs.cs" />
+    <Compile Include="Base\DefaultResponse.cs" />
+    <Compile Include="Base\DownloadCompletedEventArgs.cs" />
+    <Compile Include="Base\Enums.cs" />
+    <Compile Include="Base\Html2XmlDownload.cs" />
+    <Compile Include="Base\Html2XmlDownloadSettings.cs" />
+    <Compile Include="Charts\ChartDownloadSettings.cs" />
+    <Compile Include="Charts\ChartResult.cs" />
+    <Compile Include="Charts\ChartDownload.cs" />
+    <Compile Include="Charts\Constants.cs" />
+    <Compile Include="Charts\IChartsDownload.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Culture.cs" />
+    <Compile Include="Base\DownloadClient.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="FinanceHelper.cs" />
+    <Compile Include="HistoricalData\HistoricalData.cs" />
+    <Compile Include="HistoricalData\HistoricalDataDownload.cs" />
+    <Compile Include="HistoricalData\HistoricalDataDownloadSettings.cs" />
+    <Compile Include="HistoricalData\HistoricalDataResult.cs" />
+    <Compile Include="ImportExport.cs" />
+    <Compile Include="Interfaces\IDownload.cs" />
+    <Compile Include="Interfaces\IDownloadCompletedEventArgs.cs" />
+    <Compile Include="Interfaces\IResponse.cs" />
+    <Compile Include="Interfaces\IResultIndexSettings.cs" />
+    <Compile Include="DataFacadesHelper.cs" />
+    <Compile Include="Login\LoginDownloadSettings.cs" />
+    <Compile Include="Login\YAccountManager.cs" />
+    <Compile Include="Quotes\QuotesData.cs" />
+    <Compile Include="Quotes\QuotesDownload.cs" />
+    <Compile Include="Quotes\QuotesDownloadSettings.cs" />
+    <Compile Include="Quotes\QuotesProperties.cs" />
+    <Compile Include="Quotes\QuotesResult.cs" />
+    <Compile Include="Base\Response.cs" />
+    <Compile Include="Screener\BetaCriteria.cs" />
+    <Compile Include="Screener\CriteriaGroups\CategoryGroup.cs" />
+    <Compile Include="Screener\CriteriaGroups\CriteriaGroup.cs" />
+    <Compile Include="Screener\CriteriaGroups\EPSEstimationGroup.cs" />
+    <Compile Include="Screener\CriteriaGroups\SalesAndProfitabilityGroup.cs" />
+    <Compile Include="Screener\CriteriaGroups\ShareDataGroup.cs" />
+    <Compile Include="Screener\CriteriaGroups\ValuationRatiosGroup.cs" />
+    <Compile Include="Screener\Criterias\AskCriteria.cs" />
+    <Compile Include="Screener\Criterias\AverageDailyVolumeCriteria.cs" />
+    <Compile Include="Screener\Criterias\Base\Criteria.cs" />
+    <Compile Include="Screener\Criterias\Base\Enums.cs" />
+    <Compile Include="Screener\Criterias\Base\RangeCriteria.cs" />
+    <Compile Include="Screener\Criterias\BidCriteria.cs" />
+    <Compile Include="Screener\Criterias\DividendYieldCriteria.cs" />
+    <Compile Include="Screener\Criterias\EBITDACriteria.cs" />
+    <Compile Include="Screener\Criterias\EPSEstimateCurrentYearCriteria.cs" />
+    <Compile Include="Screener\Criterias\EPSEstimateNextQuarterCriteria.cs" />
+    <Compile Include="Screener\Criterias\EPSEstimateNextYearCriteria.cs" />
+    <Compile Include="Screener\Criterias\IndustryCriteria.cs" />
+    <Compile Include="Screener\Criterias\MarketCapCriteria.cs" />
+    <Compile Include="Screener\Criterias\PEGRatioCriteria.cs" />
+    <Compile Include="Screener\Criterias\PriceBookRatioCriteria.cs" />
+    <Compile Include="Screener\Criterias\PriceEarningsRatioCriteria.cs" />
+    <Compile Include="Screener\Criterias\PriceSalesRatioCriteria.cs" />
+    <Compile Include="Screener\Criterias\ProfitMarginCriteria.cs" />
+    <Compile Include="Screener\Criterias\SalesRevenueCriteria.cs" />
+    <Compile Include="Screener\Criterias\SharePriceCriteria.cs" />
+    <Compile Include="Screener\Criterias\ShortRatioCriteria.cs" />
+    <Compile Include="Screener\Criterias\VolumeCriteria.cs" />
+    <Compile Include="Screener\Metedata\IndexMembership.cs" />
+    <Compile Include="Screener\Metedata\IndexMemberships.cs" />
+    <Compile Include="Screener\Metedata\Industries.cs" />
+    <Compile Include="Screener\Metedata\Industry.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screener\StockScreenerDownload.cs" />
+    <Compile Include="Base\SettingBase.cs" />
+    <Compile Include="Base\TimeoutWebClient.cs" />
+    <Compile Include="Screener\StockScreenerDownloadSettings.cs" />
+    <Compile Include="Screener\StockScreenerResult.cs" />
+    <Compile Include="XChangeRates\Metadata\XChangeRate.cs" />
+    <Compile Include="XChangeRates\XChangeRatesProperties.cs" />
+    <Compile Include="XChangeRates\XChangeRatesResult.cs" />
+    <Compile Include="XChangeRates\XChangeRatesDownload.cs" />
+    <Compile Include="XChangeRates\XChangeRatesDownloadSettings.cs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FinancialAnalytics.Core\FinancialAnalytics.Core.csproj">
+      <Project>{45a82d04-4f1d-4bb9-b550-8d4d33d12315}</Project>
+      <Name>FinancialAnalytics.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinancialAnalytics.Utils\FinancialAnalytics.Utils.csproj">
+      <Project>{cfc86b3a-d23e-4663-842e-91141ed5807c}</Project>
+      <Name>FinancialAnalytics.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
